@@ -541,37 +541,37 @@ namespace raygui_cs.styles.dark
                 fixed (byte* b = darkFontData)
                 {
                     byte* data = Raylib.DecompressData(b , DARK_STYLE_FONT_ATLAS_COMP_SIZE , &darkFontDataSize);
-                    Image imFont = new Image { data = data , width = 512 , height = 256 , mipmaps = 1 , format = (PixelFormat)2 };
+                    Image imFont = new Image { Data = data , Width = 512 , Height = 256 , Mipmaps = 1 , Format = (PixelFormat)2 };
 
                     Font font = default;
-                    font.baseSize = 16;
-                    font.glyphCount = 189;
+                    font.BaseSize = 16;
+                    font.GlyphCount = 189;
 
                     // Load texture from image
-                    font.texture = Raylib.LoadTextureFromImage(imFont);
+                    font.Texture = Raylib.LoadTextureFromImage(imFont);
                     Raylib.UnloadImage(imFont);  // Uncompressed image data can be unloaded from memory
 
                     // Copy char recs data from global fontRecs
                     // NOTE: Required to avoid issues if trying to free font
-                    font.recs = (Rectangle*)Raylib.MemAlloc(font.glyphCount * sizeof(Rectangle));
-                    //Marshal.Copy(darkFontData , 0 , (nint)font.recs , darkFontData.Length);//font.glyphCount * sizeof(Rectangle));
-                    //memcpy(font.recs , darkFontRecs , font.glyphCount * sizeof(Rectangle));
+                    font.Recs = (Rectangle*)Raylib.MemAlloc((uint)font.GlyphCount * (uint)sizeof(Rectangle));
+                    //Marshal.Copy(darkFontData , 0 , (nint)font.recs , darkFontData.Length);//font.GlyphCount * sizeof(Rectangle));
+                    //memcpy(font.recs , darkFontRecs , font.GlyphCount * sizeof(Rectangle));
                     fixed (Rectangle* dFR = darkFontRecs)
                     {
-                        Buffer.MemoryCopy(dFR , font.recs , font.glyphCount * sizeof(Rectangle) , font.glyphCount * sizeof(Rectangle));
+                        Buffer.MemoryCopy(dFR , font.Recs , font.GlyphCount * sizeof(Rectangle) , font.GlyphCount * sizeof(Rectangle));
 
                     }
 
                     // Copy font char info data from global fontChars
                     // NOTE: Required to avoid issues if trying to free font
-                    font.glyphs = (Raylib_cs.GlyphInfo*)Raylib.MemAlloc(font.glyphCount * sizeof(GlyphInfo));
-                    //memcpy(font.glyphs , darkFontGlyphs , font.glyphCount * sizeof(GlyphInfo));
+                    font.Glyphs = (Raylib_cs.GlyphInfo*)Raylib.MemAlloc((uint)font.GlyphCount * (uint)sizeof(GlyphInfo));
+                    //memcpy(font.Glyphs , darkFontGlyphs , font.GlyphCount * sizeof(GlyphInfo));
                     fixed (void* n = darkFontGlyphs)
                     {
                         IntPtr p = new IntPtr(n);
-                        //Marshal.Copy(p , 0 , (nint)font.glyphs , font.glyphCount * sizeof(Rectangle));
+                        //Marshal.Copy(p , 0 , (nint)font.Glyphs , font.GlyphCount * sizeof(Rectangle));
 
-                        Buffer.MemoryCopy(n,font.glyphs, font.glyphCount * sizeof(GlyphInfo), font.glyphCount * sizeof(GlyphInfo));
+                        Buffer.MemoryCopy(n,font.Glyphs, font.GlyphCount * sizeof(GlyphInfo), font.GlyphCount * sizeof(GlyphInfo));
                     }
 
                     //IntPtr buffer = Marshal.AllocHGlobal(sizeof(GlyphInfo));
@@ -585,7 +585,7 @@ namespace raygui_cs.styles.dark
                     // Setup a white rectangle on the font to be used on shapes drawing,
                     // it makes possible to draw shapes and text (full UI) in a single draw call
                     Rectangle fontWhiteRec = new(510 , 254 , 1 , 1);
-                    Raylib.SetShapesTexture(font.texture , fontWhiteRec);
+                    Raylib.SetShapesTexture(font.Texture , fontWhiteRec);
                 }
 
             }

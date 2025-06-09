@@ -970,7 +970,7 @@ namespace raygui_cs
         }
         public static Color GetColor(uint hexValue)
         {
-            Color color = new Color();
+            Color color = default;
 
             color.R = (byte)((hexValue >> 24) & 0xFF);
             color.G = (byte)((hexValue >> 16) & 0xFF);

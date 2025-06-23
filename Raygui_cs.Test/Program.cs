@@ -29,11 +29,11 @@ namespace Raygui_cs.Test
             int Dropbox0 = 0;
             bool Dropbox1 = false;
             int Spin = 0;
-            Color picker0 = Color.WHITE;
-            Color picker1 = Color.WHITE;
+            Color picker0 = Color.White;
+            Color picker1 = Color.White;
             Vector3 HSV_Value=default;
             bool Spin0 = false;
-            Raylib.SetWindowState(ConfigFlags.FLAG_VSYNC_HINT);
+            Raylib.SetWindowState(ConfigFlags.VSyncHint);
             ReadonlyString [ ] Tabs = new ReadonlyString [ 4 ];
             Tabs [ 0 ] = "Tab0";
             Tabs [ 1 ] = "Tab1";
@@ -43,7 +43,7 @@ namespace Raygui_cs.Test
             while (!Raylib.WindowShouldClose())
             {
                 Raylib.BeginDrawing();
-                Raylib.ClearBackground(Color.WHITE);
+                Raylib.ClearBackground(Color.White);
                 {
                     PageSelectorActive = Raygui.GuiListView(new Rectangle(0 , 0 , 150 , 600) , "General;Window;Inputs;Grid;Color;Panel and Tab" , ref PageIndex , PageSelectorActive);
                     switch (PageSelectorActive)

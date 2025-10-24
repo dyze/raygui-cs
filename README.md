@@ -6,6 +6,11 @@ Modification was made to reduce memory usage and heap memory allocation.
 
 Current plan: port Raygui 4.0
 
+
+**Fork of https://github.com/creeperlv/raygui-cs**
+**To be able to build nugets for .NET8**
+
+
 ## Redesigned:
 
 - [x] GuiButton

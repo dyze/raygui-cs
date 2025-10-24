@@ -1,14 +1,36 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>raygui_cs</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>raygui_cs</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<PackageId>Raylib-cs-creeperlv</PackageId>
+		<Authors>creeperlv</Authors>
+		<Description>
+		  This is a port of `raygui` library. Basically a direct translation of from the original `raygui.h` from C to C#, plus some modification.
+		  Fork of https://github.com/creeperlv/raygui-cs to be able to build nugets for .NET8.
+		</Description>
+		<PackageProjectUrl>https://github.com/dyze/raygui-cs</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/dyze/raygui-cs</RepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageTags>raylib, raygui, csharp, c#, gui</PackageTags>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Raylib-cs" Version="7.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Raylib-cs" Version="7.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>

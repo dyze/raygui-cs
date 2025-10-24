@@ -5,7 +5,7 @@
 		<RootNamespace>raygui_cs</RootNamespace>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<PackageId>Raylib-cs-creeperlv</PackageId>
+		<PackageId>Raygui-cs-creeperlv</PackageId>
 		<Authors>creeperlv</Authors>
 		<Description>
 		  This is a port of `raygui` library. Basically a direct translation of from the original `raygui.h` from C to C#, plus some modification.
